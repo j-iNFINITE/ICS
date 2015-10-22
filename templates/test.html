@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block body_block %}
+<div class="container">
+ <h1>ICS注册</h1>
+
+ {% if registered %}
+ <strong>用户注册完成</strong>
+ <a href="/">Return to the homepage.</a><br />
+ {% else %}
+ <strong>用户注册</strong><br />
+ <form class="form-group" id="user_form" method="post" action="/register" enctype="multipart/form-data">
+
+     {% csrf_token %}
+
+     <!-- Display each form. The as_p method wraps each element in a paragraph
+          (<p>) element. This ensures each element appears on a new line,
+          making everything look neater. -->
+     {{ user_form.as_p }}
+     {{ profile_form.as_p }}
+     <label for="id_nm" class="sr-only">username</label>
+     <input type="username" id="id_nm" class="form-control" placeholder="用户名" required="" autofocus>
+     <!-- Provide a button to click to submit the form. -->
+     <input type="submit" name="submit" value="注册" />
+ </form>
+ {% endif %}
+ 
+ </div>
+{% endblock %}
