@@ -10,10 +10,12 @@ class UserProfile(models.Model):
         ('0335','德胜东路支行'),
     )
     branch = models.CharField('网点',max_length=4,choices=branchinfo)
-    phone = models.IntegerField('手机号',max_length=11,null=True)
+    phone = models.CharField('手机号',max_length=11,null=True)
     level = (
         ('1','网点负责人'),
         ('2','客户经理'),
     )
     userlevel = models.CharField(max_length=1,choices=level)
+    def __str__(self):
+        return str(self.user)
 
