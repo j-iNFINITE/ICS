@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+     {% block head_block %}
+         <script src="{% static "js/moment.js" %}" xmlns="http://www.w3.org/1999/html"
+                 xmlns="http://www.w3.org/1999/html"></script>
+     {% endblock %}
+{% block body_block %}
+<div class="container">
+    <div class="page-header">
+        <h1>{{ client }}</h1>
+    </div>
+<ul class="nav nav-tabs">
+  <li role="presentation" ><a href="client-client?client={{ client }}">基础信息</a></li>
+  <li role="presentation" ><a href="client-client-pd?client={{ client }}">受理产品</a></li>
+  <li role="presentation" class="active"><a >需求</a></li>
+</ul>
+    <br>
+<ul >
+    <li>根据该客户本年对外转账次数大于<mark class="lead">100</mark>次，收到异地转账次数大于<mark class="lead">100</mark>次，被收取手续费<mark class="lead">65</mark>次的数据判断，该客户应对<mark class="lead">商惠通优惠套餐</mark>较感兴趣，推荐办理。</li>
+    <li>根据该客户本年活期存款与定期存款相互转变比例超过<mark class="lead">50%</mark>判断，该客户应对<mark class="lead">活利盈产品</mark>较感兴趣，推荐办理。</li>
+</ul>
+
+{% endblock %}

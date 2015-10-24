@@ -12,3 +12,11 @@ def index(request):
 def client(request):
     client=request.GET['client']
     return render(request,'client-client.html',{'client':client})
+@login_required
+def pd(request):
+    client=request.GET['client']
+    return render(request,'client-client-pd.html',{'client':client})
+@login_required
+def need(request):
+    client=request.GET['client']
+    return render(request,'client-client-need.html',{'client':client})
