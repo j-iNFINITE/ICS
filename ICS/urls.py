@@ -17,11 +17,14 @@ from django.conf.urls import include, url
 from django.contrib import admin
 import login.urls
 import login.views
-
+import client.urls
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', login.views.index, name='index'),
     url(r'^register$',login.views.register,name='register'),
-    url(r'^login/',include(login.urls)),
-    url(r'^test/$', login.views.register, name='test'),
+    url(r'^portal$', login.views.portal,name='portal'),
+    url(r'^logout$', login.views.userlogout,name='userlogout'),
+    url(r'^accounts/login/', login.views.index,name='index'),
+    url(r'client/',include('client.urls'))
+
 ]

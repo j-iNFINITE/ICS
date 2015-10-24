@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load staticfiles %}
+{% block head_block %}
+    <link href="{% static "css/signin.css" %}" rel="stylesheet">
+{% endblock %}
+{% block body_block %}
+<div class="container">
+<div class="page-header" align="center">
+    <h1>欢迎访问ICS</h1>
+</div>
+<div class="list-group">
+    <a class="list-group-item" href="/client/">
+        <h4 class="list-group-item-heading">客户管理</h4>
+        <p class="list-group-item-text">
+            查询管理客户信息
+        </p>
+    </a>
+    <a class="list-group-item" href="#">
+        <h4 class="list-group-item-heading">市场管理</h4>
+        <p class="list-group-item-text">
+            市场营销辅助
+        </p>
+    </a>
+    <div class="list-group-item" style="border-width: 0px; padding: 0px;">
+        <button type="button" class="list-group-item " aria-expanded="false" aria-haspopup="true" data-toggle="dropdown">
+            <h4 class="list-group-item-heading">应用<span class="caret"></span></h4>
+
+        </button>
+        <ul class="dropdown-menu">
+            <li>
+                <a href="#">问卷系统</a>
+            </li>
+{#            <li>#}
+{#                <a href="#">应用二</a>#}
+{#            </li>#}
+        </ul>
+    </div>
+    <a role="separator" class="divider"></a>
+    <a class="list-group-item" href="logout">
+        <h4 class="list-group-item-heading">退出</h4>
+    </a>
+</div>
+
+</div>
+{% endblock %}
