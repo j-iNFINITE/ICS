@@ -83,7 +83,7 @@ def index(request):
                 # If the account is valid and active, we can log the user in.
                 # We'll send the user back to the homepage.
                 login(request, user)
-                return HttpResponseRedirect('/portal')
+                return HttpResponseRedirect('/client')
             else:
                 # An inactive account was used - no logging in!
                 return HttpResponse("账户无效")

@@ -13,16 +13,17 @@
 <div class="container">
 
       <form class="form-signin" name="user_form" method="post" action="/register" >
-      <h1 class="form-signin-heading">ICS注册</h1>
+          <h1 class="form-signin-heading "align="center">欢迎注册</h1>
+      <h2 class="form-signin-heading " align="center">专业市场麦克系统</h2>
           <h6 class="alert-danger">{{ error1 }}</h6>
           <h6 class="alert-danger">{{ error2 }}</h6>
       {% csrf_token %}
         <label for="username" class="sr-only">username</label>
-        <input type="username" name="username" class="form-control" placeholder="用户名" required="" value="" autofocus>
+        <input type="text" name="username" class="form-control" placeholder="用户名" required="" value="" autofocus>
         <label for="password" class="sr-only">Password</label>
         <input type="password" name="password" class="form-control" placeholder="Password" required="" value="">
         <label for="phone" class="sr-only">phone</label>
-        <input type="phone" name="phone" class="form-control" placeholder="手机号" required="" maxlength="11" value="">
+        <input type="text" name="phone" class="form-control" placeholder="手机号" required="" maxlength="11" value="">
         <select class="form-control" name="branch" >
         <option value="0071">九沙支行</option>
         <option value="0169">月雅路支行</option>

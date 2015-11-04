@@ -5,7 +5,7 @@
 {% endblock %}
 {% block body_block %}
 <div class="container">
-<header class="page-header" ><h1>客户营销系统</h1></header>
+<header class="page-header" ><h1>专业市场麦克系统</h1></header>
 <form>
     <div class="row">
   <div class="col-lg-12">
@@ -19,63 +19,16 @@
 </div><!-- /.row -->
 </form>
 </br>
-<header class="page-header" style="text-align: left" ><h3>今日目标客户</h3></header>
+<header class="page-header" style="text-align: left" ><h3>{{ user }}的今日目标客户</h3></header>
 <div class="btn-group-xs" role="group" aria-label="...">
-  <form class="btn-group" role="group" action="client-client" >
-    <button type="submit" class="btn btn-default btn-block" value="邵康力" name="client" >邵康力</button>
+  {% for client in clients %}
+  <form class="btn-group" role="group" action="client-info" >
+    <button type="submit" class="btn btn-default btn-block" value="{{ client }}" name="client" >{{ client }}</button>
   </form>
-  <div class="btn-group" role="group">
-    <button type="button" class="btn btn-default btn-block" disabled>邵黎曙</button>
-  </div>
-  <div class="btn-group" role="group">
-    <button type="button" class="btn btn-default btn-block" disabled>叶庆喜</button>
-  </div>
-  <div class="btn-group" role="group">
-    <button type="button" class="btn btn-default btn-block" disabled>阮再丰
-</button>
-  </div>
-  <div class="btn-group" role="group">
-    <button type="button" class="btn btn-default btn-block" disabled>封丽萍
-</button>
-  </div>
-  <div class="btn-group" role="group">
-    <button type="button" class="btn btn-default btn-block" disabled>来剑
-</button>
-  </div>
-
+  {% endfor %}
 </div>
-<header class="page-header" style="text-align: left" ><h3>待补充信息客户清单</h3></header>
-<div class="btn-group-xs" role="group" aria-label="...">
-  <div class="btn-group" role="group">
-    <button type="button" class="btn btn-default btn-block" disabled>顾中东
-</button>
-  </div>
-  <div class="btn-group" role="group">
-    <button type="button" class="btn btn-default btn-block" disabled>朱加金
-</button>
-  </div>
-  <div class="btn-group" role="group">
-    <button type="button" class="btn btn-default btn-block" disabled>余恭早
-</button>
-  </div>
-  <div class="btn-group" role="group">
-    <button type="button" class="btn btn-default btn-block" disabled>张卫晓
-</button>
-  </div>
-  <div class="btn-group" role="group">
-    <button type="button" class="btn btn-default btn-block" disabled>郑勤英
-</button>
-  </div>
-  <div class="btn-group" role="group">
-    <button type="button" class="btn btn-default btn-block" disabled>王贺春
-</button>
-  </div>
-  <div class="btn-group" role="group">
-    <button type="button" class="btn btn-default btn-block" disabled>马余洋
-</button>
-  </div>
 
 
 </div>
-</div>
+
 {% endblock %}

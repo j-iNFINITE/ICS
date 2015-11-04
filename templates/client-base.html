@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+<div class="container">
+    <div class="page-header">
+        <h1>{{ client }}<small>{{ market }}</small></h1>
+    </div>
+<ul class="nav nav-tabs">
+  <li id="info" role="presentation" class=""><a href="client-info?client={{ client }}">基础信息</a></li>
+  <li id="pd" role="presentation"><a href="client-pd?client={{ client }}">调查问卷</a></li>
+  <li id="need" role="presentation"><a href="client-need?client={{ client }}">营销提示</a></li>
+</ul>
+ <script>
+ if (document.location.href.search("client-info")!=-1)
+  {
+  document.getElementById("info").className='active'
+  }
+ if (document.location.href.search("client-pd")!=-1)
+  {
+  document.getElementById("pd").className='active'
+  }
+ if (document.location.href.search("client-need")!=-1)
+  {
+  document.getElementById("need").className='active'
+  }
+ </script>
+{% block clientbase %}{% endblock %}
+{% endblock %}

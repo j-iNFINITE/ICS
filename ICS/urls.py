@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^portal$', login.views.portal,name='portal'),
     url(r'^logout$', login.views.userlogout,name='userlogout'),
     url(r'^accounts/login/', login.views.index,name='index'),
-    url(r'client/',include('client.urls'))
+    url(r'client/',include('client.urls')),
+    url(r'survey/',include('survey.urls'))
 
 ]
