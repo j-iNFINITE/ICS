@@ -19,14 +19,22 @@ else
   <div>
 <form  method="get" >
 <div class="form-horizontal">
-  <div class="form-control-static" {{ isver }}><label for="Qversion">为何未迁移总行版：</label><input id="Qversion" name="Qversion" type="text" class="form-control" /></div>
-  <div class="form-control-static" {{ isoverbankhidden }}><label for="Qoverbank">为何未开通跨行：</label><input id="Qoverbank" name="Qoverbank" type="text" class="form-control" /></div>
-  <div class="form-control-static"{{ iscredithidden }}><label for="Qcredit">为何未开通贷记卡：</label><input id="Qcredit" name="Qcredit" type="text" class="form-control" /></div>
-<div class="form-control-static"{{ isbaobeihidden }}><label for="Qbaobei">为何未报备：</label><input id="Qbaobei" name="Qbaobei" type="text" class="form-control" /></div>
+  <div class="form-control-static"{{ iscredithidden }}>
+      <label for="Qcredit">为何未开通贷记卡：</label>
+      <select id="Qcredit" name="Qcredit"  class="form-control" >
+          <option value="" selected="selected"></option>
+      </select>
+  </div>
+<div class="form-control-static"{{ isbaobeihidden }}
+        ><label for="Qbaobei">为何未提升限额：</label>
+    <select id="Qbaobei" name="Qbaobei"  class="form-control" >
+        <option value="" selected="selected"></option>
+    </select></div>
 </div>
 <div >
 <label for="most">最常用的机具是哪家银行：</label>
 <select id="most" name="most" class="form-control" onchange="fun()" >
+  <option value="" selected="selected"></option>
   <option value="农业银行">农业银行</option>
   <option value="工商银行">工商银行</option>
   <option value="中国银行">中国银行</option>
@@ -42,7 +50,7 @@ else
   <option value="邮储银行">邮储银行</option>
 </select>
 </div>
-<div id="Q2div" hidden="hidden">
+<div id="Q2div" >
 <label for="Q2">不使用农行机具的主要原因：</label>
 <div class="radio">
   <label>
@@ -76,12 +84,12 @@ else
 <p><div>
 <label>参加九堡支行华贸客户VIP计划</label>
 <div class="row">
-  <div class="col-md-4"><label>姓名：</label><input name="name" type="text" /></div>
+  <div class="col-md-4"><label>姓名：</label><input name="name" type="text" value="沃东东" /></div>
   <div class="col-md-4"><label>性别：</label><select name="sex">
-    <option value="M">男</option>
+    <option value="M" selected="selected">男</option>
     <option value="F">女</option>
   </select></div>
-  <div class="col-md-4"><label>手机号：</label><input name="phone" type="text" /></div>
+  <div class="col-md-4"><label >手机号：</label><input name="phone" type="text" value="15067917378"/></div>
 </div>
 <br />
 <div align="center">
