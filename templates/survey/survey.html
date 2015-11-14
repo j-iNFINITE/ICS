@@ -1,0 +1,60 @@
+{% extends 'survey/base.html' %}
+{% block body_block %}
+<div class="container h4">
+<legend>金秋市场综合营销活动台账  <small>{{ branch }}:{{ worker }}</small></legend>
+<form action="{{ branch }}-{{ worker }}-done">
+  <div class="form-group">
+    <input type="text" class="form-control" name="name" placeholder="请输入用户姓名">
+
+  <label >签约产品</label>
+  <div class="form-horizontal">
+      <label  class="col-md-12">
+      <input name="hly" type="checkbox" value="True">活利盈</label>
+      <label  class="col-md-12">
+      <input name="skb" type="checkbox" value="True">收款宝</label>
+      <label  class="col-md-12">
+      <input name="kkt" type="checkbox" value="True">卡卡通</label>
+      <label  class="col-md-12">
+      <input name="sxt" type="checkbox" value="True">随薪通准贷记卡</label>
+
+  </div>
+   </div>
+   <div class="form-row">
+  <label class="control-label">所属市场</label>
+  <div class="controls">
+    <select name="market" class="input-xlarge" id="market">
+      <option>东升小商品市场</option>
+      <option>吉田市场</option>
+      <option>长城机电市场</option>
+      <option>浙江华贸鞋业皮具城</option>
+      <option>四季青国际服装城</option>
+      <option>步步高鞋城</option>
+      <option>东大门商品交易中心</option>
+      <option>玖宝精品服装城</option>
+      <option>四季青服装大市场</option>
+      <option>杭州闽发石材市场</option>
+      <option>浙江石材市场</option>
+      <option>杭州木材交易市场</option>
+      <option>杭州长城机电市场</option>
+      <option>杭州金茂五金市场</option>
+      <option>杭州金茂家居市场</option>
+      <option>杭州瑞纺联合轻纺城</option>
+      <option>杭州新城东旧货市场</option>
+      <option>下沙家具家电卖场</option>
+      <option>杭州恒大国际建材家居博览中心</option>
+      <option>浙江万品汽配城</option>
+      <option>杭州东升服装小商品市场</option>
+      <option>杭州汽车东站小商品市场</option>
+      <option>杭州安琪儿服装小商品市场</option>
+      <option>新月面料市场</option>
+      <option>艮东五金批发市场</option>
+      <option>其他</option>
+    </select>
+  </div>
+</div>
+    <br />
+    <div class="center-block">
+  <button type="submit" class="btn btn-default btn-lg">提交</button></div>
+</form>
+</div>
+{% endblock %}

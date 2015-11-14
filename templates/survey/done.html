@@ -1,0 +1,14 @@
+{% extends 'survey/base.html' %}
+{% block body_block %}
+    <div class="container">
+    <h1 align="center">{{ result }}</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <a href="survey?branch={{ branch }}&worker={{ worker }}" class="btn btn-default  active btn-block" role="button">登记下一个</a>
+        </div>
+        <div class="col-md-6">
+            <a href="\" class="btn btn-default  active btn-block" role="button">返回首页</a>
+        </div>
+    </div>
+    </div>
+{% endblock %}
