@@ -7,6 +7,7 @@ class autum(models.Model):
     skb = models.BooleanField('收款宝',default=False)
     sxt = models.BooleanField('随薪通准贷记卡',default=False)
     kkt = models.BooleanField('卡卡通',default=False)
+    tlkh = models.BooleanField('通联跨行归集',default=False)
     branchinfo = (
         ('0071','九沙支行'),
         ('0169','月雅路支行'),

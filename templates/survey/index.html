@@ -15,6 +15,7 @@
       <li role="presentation"><a id="0332-tab" role="tab" aria-expanded="false" aria-controls="0332" href="#0332" data-toggle="tab">朝阳支行</a></li>
       <li role="presentation"><a id="0333-tab" role="tab" aria-expanded="false" aria-controls="0333" href="#0333" data-toggle="tab">营业中心</a></li>
       <li role="presentation"><a id="0335-tab" role="tab" aria-expanded="false" aria-controls="0335" href="#0335" data-toggle="tab">德胜东路支行</a></li>
+      <li role="presentation"><a id="count-tab" role="tab" aria-expanded="false" aria-controls="count" href="#count" data-toggle="tab">统计</a></li>
 
     </ul>
     <div class="tab-content" id="myTabContent">
@@ -35,6 +36,7 @@
         </div>
       </div>
       <div class="tab-pane fade" id="0169" role="tabpanel" aria-labelledby="0169-tab">
+          <br />
         <a href="survey?branch=月雅路支行&worker=陈雅飞" class="btn btn-default  active btn-block" role="button">陈雅飞</a>
         <a href="survey?branch=月雅路支行&worker=陈琴" class="btn btn-default  active btn-block" role="button">陈琴</a>
         <a href="survey?branch=月雅路支行&worker=沈建芬" class="btn btn-default  active btn-block" role="button">沈建芬</a>
@@ -49,6 +51,7 @@
         <a href="survey?branch=月雅路支行&worker=肖爽" class="btn btn-default  active btn-block" role="button">肖爽</a>
       </div>
       <div class="tab-pane fade" id="0332" role="tabpanel" aria-labelledby="0332-tab">
+          <br />
         <a href="survey?branch=朝阳支行&worker=陈柏柱" class="btn btn-default  active btn-block" role="button">陈柏柱</a>
         <a href="survey?branch=朝阳支行&worker=封燕萍" class="btn btn-default  active btn-block" role="button">封燕萍</a>
         <a href="survey?branch=朝阳支行&worker=周莉" class="btn btn-default  active btn-block" role="button">周莉</a>
@@ -68,6 +71,7 @@
         <a href="survey?branch=朝阳支行&worker=王雷霞" class="btn btn-default  active btn-block" role="button">王雷霞</a>
       </div>
       <div class="tab-pane fade" id="0333" role="tabpanel" aria-labelledby="0333-tab">
+          <br />
         <a href="survey?branch=营业中心&worker=赵绿弟" class="btn btn-default  active btn-block" role="button">赵绿弟</a>
         <a href="survey?branch=营业中心&worker=汪蓓" class="btn btn-default  active btn-block" role="button">汪蓓</a>
         <a href="survey?branch=营业中心&worker=吴振国" class="btn btn-default  active btn-block" role="button">吴振国</a>
@@ -88,6 +92,7 @@
         <a href="survey?branch=营业中心&worker=宣佳卉" class="btn btn-default  active btn-block" role="button">宣佳卉</a>
       </div>
       <div class="tab-pane fade" id="0335" role="tabpanel" aria-labelledby="0335-tab">
+          <br />
         <a href="survey?branch=德胜东路支行&worker=吴芬" class="btn btn-default  active btn-block" role="button">吴芬</a>
         <a href="survey?branch=德胜东路支行&worker=滕菲" class="btn btn-default  active btn-block" role="button">滕菲</a>
         <a href="survey?branch=德胜东路支行&worker=曹华娟" class="btn btn-default  active btn-block" role="button">曹华娟</a>
@@ -100,6 +105,46 @@
         <a href="survey?branch=德胜东路支行&worker=杨彬" class="btn btn-default  active btn-block" role="button">杨彬</a>
         <a href="survey?branch=德胜东路支行&worker=孔凯杰" class="btn btn-default  active btn-block" role="button">孔凯杰</a>
         <a href="survey?branch=德胜东路支行&worker=沈珠慧" class="btn btn-default  active btn-block" role="button">沈珠慧</a>
+      </div>
+      <div class="tab-pane fade " id="count" role="tabpanel" aria-labelledby="count-tab">
+          <br />
+          <script src="http://cdn.bootcss.com/moment.js/2.10.6/moment.min.js"></script>
+          <script src="http://cdn.bootcss.com/Chart.js/2.0.0-beta/Chart.min.js"></script>
+          <canvas id="myChart" ></canvas>
+          <script>
+
+              var data = {
+                            labels : ["九沙支行","月雅路支行","朝阳支行","营业中心","德胜东路支行","总计"],
+                            datasets : [
+                                {
+                                    label: "登记客户数",
+                                    fillColor : "rgba(220,220,220,0.5)",
+                                    strokeColor : "rgba(220,220,220,1)",
+                                    data : [1,1,1,1,1,5]
+                                },
+                            ]
+                        };
+              var options = {
+                  scaleStartValue : 0,    //y轴的起始值
+              };
+              window.onload = function() {
+                    var chartEl = document.getElementById("myChart");
+                    window.myLine = new Chart(chartEl, {
+                        type: 'bar',
+                        data: data,
+                        options: options
+                    });
+                };
+
+          </script>
+          <br />
+          <a href="" class="btn btn-primary   btn-block" role="button">九沙支行明细</a>
+          <a href="" class="btn btn-primary   btn-block" role="button">月雅路支行明细</a>
+          <a href="" class="btn btn-primary   btn-block" role="button">朝阳支行明细</a>
+          <a href="" class="btn btn-primary   btn-block" role="button">营业中心明细</a>
+          <a href="" class="btn btn-primary   btn-block" role="button">德胜东路明细</a>
+
+
       </div>
 
     </div>
