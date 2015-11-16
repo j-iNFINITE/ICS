@@ -50,6 +50,8 @@ def done(request):
             record.sxt=request.GET['sxt']
         if 'tlkh' in request.GET.keys():
             record.tlkh=request.GET['tlkh']
+        if 'note' in request.GET.keys():
+            record.note=request.GET['note']
         record.worker=context['worker']
         record.market=context['market']
         record.branch=branchinfo[context['branch']]

@@ -18,6 +18,7 @@ class autum(models.Model):
     branch = models.CharField('网点',max_length=4,choices=branchinfo)
     worker = models.CharField('受理员工',max_length=10)
     market = models.CharField('所属市场',max_length=30)
+    note = models.TextField('备注')
     time=models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.name
