@@ -1,0 +1,25 @@
+{% extends 'survey/base.html' %}
+{% block body_block %}
+    <div class="container ">
+    <form class="form-inline" action="login" method="post">
+        {% csrf_token %}
+
+<!-- Form Name -->
+<legend>金秋市场综合营销活动台账</legend>
+
+    <h4>用户登录：</h4>
+     <div class="form-group">
+    <label for="branch">所属网点</label>
+    <input type="text" class="form-control" name="branch"  value="{{ branch }}" readonly>
+  </div>
+  <div class="form-group">
+    <label for="name">姓名</label>
+    <input type="text" class="form-control" name="name" value="{{ worker }}" readonly>
+  </div>
+  <div class="form-group">
+    <label for="password">密码</label>
+    <input type="password" class="form-control" name="password" placeholder="请输入密码">
+  </div>
+  <button type="submit" class="btn btn-default">确认</button>
+</form>
+{% endblock %}

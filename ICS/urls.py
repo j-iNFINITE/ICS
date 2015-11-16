@@ -18,13 +18,14 @@ from django.contrib import admin
 import login.urls
 import login.views
 import client.urls
+import survey.views
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', login.views.index, name='index'),
     url(r'^register$',login.views.register,name='register'),
     url(r'^portal$', login.views.portal,name='portal'),
     url(r'^logout$', login.views.userlogout,name='userlogout'),
-    url(r'^accounts/login/', login.views.index,name='index'),
+    url(r'^accounts/login/', survey.views.error,name='error'),
     url(r'client/',include('client.urls')),
     url(r'survey/',include('survey.urls'))
 
