@@ -52,7 +52,6 @@ def login(request):
                 return HttpResponse("账户无效")
         else:
             # Bad login details were provided. So we can't log the user in.
-            print("Invalid login details: {0}, {1}".format(username, password))
             return HttpResponse("账号有误，请退回重试")
     else:
         context={}
