@@ -1,4 +1,8 @@
 {% extends 'survey/base.html' %}
+{% block head_block %}
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+{% endblock %}
 {% block body_block %}
     <div class="container ">
     <form class="form-inline" >
@@ -105,7 +109,7 @@
         <a href="login?branch=德胜东路支行&worker=沈珠慧" class="btn btn-default  active btn-block" role="button">沈珠慧</a>
       </div>
       <div class="tab-pane" id="chart2">
-        <canvas id="myChart2" width="400" height="400"></canvas>
+        <div id="myChart2" ></div>
           <br />
           <a href="" class="btn btn-primary   btn-block" role="button">九沙支行明细</a>
           <a href="" class="btn btn-primary   btn-block" role="button">月雅路支行明细</a>
@@ -115,48 +119,69 @@
       </div>
 
 	<script>
-        $(function() {
-    'use strict';
+        $(function () {
+    $('#myChart2').highcharts({
+        chart: {
+            type: 'column',
 
-    var line_chart_options = {
+        },
+        title: {
+            text: '金秋市场综合营销活动台账进度表'
+        },
+        subtitle: {
+            useHTML:true,
+            text: '九沙支行完成{%  widthratio js 127 100 %}%，月雅路支行完成{%  widthratio yyl 271 100 %}%，朝阳支行完成{%  widthratio cy 159 100 %}%，<br/>营业中心完成{%  widthratio yyzx 180 100 %}%，得胜东路支行完成{%  widthratio dd 262 100 %}%，合计进度{%  widthratio sum 1000 100 %}%'
+        },
 
-    };
-    var data = {
-        labels: ["九沙支行", "月雅路支行", "朝阳支行", "营业中心", "德胜东路支行","总计"],
-        datasets: [
-            {
-                label: "指导性计划数",
-                backgroundColor: "rgba(151,187,205,0.5)",
-                borderColor: "rgba(151,187,205,1)",
-                data: [127, 271, 159, 180, 262, 1000]
-            },
-            {
-                label: "已登记客户数",
-                backgroundColor: "rgba(220,220,220,0.5)",
-                borderColor: "rgba(220,220,220,1)",
-                data: [0, 0, 0, 0, 0, 0]
+        xAxis: {
+            categories: ['九沙支行', '月雅路支行', '朝阳支行', '营业中心', '德胜东路支行'],
+            title: {
+                text: null
             }
-        ]
-    };
-
-    var ctx2 = $("#myChart2").get(0).getContext("2d");
-    var myLineChart2;
-
-    $('#tab1').on('shown.bs.tab', function (e) {
-        myLineChart2.destroy();
-    });
-
-    $('#tab2').on('shown.bs.tab', function (e) {
-        var ctx = document.getElementById("myChart2").getContext("2d");
-            window.myBar = new Chart(ctx, {
-                type: 'bar',
-                data: data,
-                options:  {
-                    responsive: true,
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: '单位（户）',
+                align: 'high'
+            },
+            labels: {
+                overflow: 'justify'
+            }
+        },
+        tooltip: {
+            valueSuffix: '户'
+        },
+        plotOptions: {
+            column: {
+                dataLabels: {
+                    enabled: true,
+                    format: '{y}户'
                 }
-            });
+            }
+        },
+        legend: {
+            floating: false,
+            borderWidth: 0,
+            backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+            shadow: true
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: '指导性计划数',
+            data: [127, 271, 159, 180, 262]
+        }, {
+            name: '已登记客户数',
+            data: [{{ js }},{{ yyl }},{{ cy }},{{ yyzx }},{{ dd }}]
+        }]
 
     });
+    $('#tab2').on('shown.bs.tab', function (e) {
+        $('#myChart2').highcharts().reflow()
+
+                });
 });
     </script>
 

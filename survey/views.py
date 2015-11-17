@@ -8,7 +8,22 @@ from survey.models import autum
 import re
 # Create your views here.
 def index(request):
-    return render(request,'survey/index.html')
+    context={}
+    js=autum.objects.filter(branch='0071')
+    yyl=autum.objects.filter(branch='0169')
+    cy=autum.objects.filter(branch='0332')
+    yyzx=autum.objects.filter(branch='0333')
+    dd=autum.objects.filter(branch='0335')
+    hj=len(js)+len(yyl)+len(cy)+len(yyzx)+len(dd)
+    context={
+        'js': len(js),
+        'yyl': len(yyl),
+        'cy': len(cy),
+        'yyzx':len(yyzx),
+        'dd': len(dd),
+        'sum': hj
+    }
+    return render(request,'survey/index.html',context)
 def test(request):
     context={}
     context['branch']=request.GET['branch']
