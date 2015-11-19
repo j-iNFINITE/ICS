@@ -6,5 +6,6 @@ urlpatterns = [
     url(r'^survey$', survey.views.survey, name='survey'),
     url(r'^.*-done$', survey.views.done, name='done'),
     url(r'^login$', survey.views.login, name='login'),
+    url(r'^details$', survey.views.dtails, name='details'),
 
 ]

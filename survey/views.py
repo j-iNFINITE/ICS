@@ -117,3 +117,35 @@ def done(request):
     return render(request,'survey/done.html',context)
 def error(request):
     return render(request,'survey/error.html')
+def dtails(request):
+    context={}
+    context['branch']=request.GET['branch']
+    branchinfo = {
+        '0071':'九沙支行',
+        '0169':'月雅路支行',
+        '0332':'朝阳支行',
+        '0333':'营业中心',
+        '0335':'德胜东路支行',
+    }
+    context['branch_name']=branchinfo[request.GET['branch']]
+    names=[]
+    temps=autum.objects.filter(branch=request.GET['branch']).values('worker')
+    for temp in temps:
+        names.append(temp['worker'])
+    name={}
+    for i in names:
+        if names.count(i)>=1:
+            name[i]=names.count(i)
+    sum=0
+    for i in name.values():
+        sum+=i
+    chart_name=[]
+    chart_y=[]
+    for key in name.keys():
+        name[key]=name[key]/sum
+        chart_name=key
+
+
+    context['chart_name']=chart_name
+    context['name']=name
+    return render(request,'survey/details.html',context)
