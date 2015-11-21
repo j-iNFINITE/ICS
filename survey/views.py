@@ -168,7 +168,7 @@ def dtails(request):
         chart_name=key
     context['chart_name']=chart_name
     context['name']=name
-    records=autum.objects.filter(branch=request.GET['branch']).values()
+    records=autum.objects.filter(branch=request.GET['branch']).values().order_by('time')
     ls_all=[]
     for record in records:
         ls=[]

@@ -13,7 +13,7 @@ import re
 context={}
 ls_all=[]
 
-records=autum.objects.filter(branch='0071').values()
+records=autum.objects.filter(branch='0071').values().order_by('time')
 for record in records:
     ls=[]
     for vb in record.keys():
