@@ -166,8 +166,27 @@ def dtails(request):
     for key in name.keys():
         name[key]=name[key]/sum
         chart_name=key
-
-
     context['chart_name']=chart_name
     context['name']=name
+    records=autum.objects.filter(branch=request.GET['branch']).values()
+    ls_all=[]
+    for record in records:
+        ls=[]
+        for vb in record.keys():
+            if record[vb]==False:
+                record[vb]='否'
+            if record[vb]==True:
+                record[vb]='是'
+        ls.append(record['name'])
+        ls.append(record['market'])
+        ls.append(record['hly'])
+        ls.append(record['skb'])
+        ls.append(record['sxt'])
+        ls.append(record['kkt'])
+        ls.append(record['tlkh'])
+        ls.append(record['worker'])
+        ls.append(record['note'])
+        ls_all.append(ls)
+    context['ls_all']=ls_all
+
     return render(request,'survey/details.html',context)

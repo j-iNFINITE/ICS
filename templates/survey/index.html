@@ -196,18 +196,19 @@
             },
             stackLabels: {
                 enabled: true,
+                y:-20,
                 style: {
                     fontWeight: 'bold',
                     color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
                 },
+            formatter: function() {
+                    //格式化总和数据标签
+                    return "总计："+this.total + " 户";
+                }
             }
         },
         legend: {
-            align: 'right',
-            x: -70,
-            verticalAlign: 'top',
-            y: 20,
-            floating: true,
+            floating: false,
             backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColorSolid) || 'white',
             borderColor: '#CCC',
             borderWidth: 1,
@@ -216,23 +217,17 @@
         tooltip: {
             formatter: function() {
                 return '<b>'+ this.x +'</b><br/>'+
-                    this.series.name +': '+ this.y +'<br/>'+
-                    '总计: '+ this.point.stackTotal;
+                    this.series.name +': '+ this.y +' 户<br/>'+
+                    '总计: '+ this.point.stackTotal+' 户';
             }
         },
         plotOptions: {
             column: {
                 stacking: 'normal',
-                threshold:4,
                 dataLabels: {
                     enabled: true,
-                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'black',
-                    borderRadius: 5,
-                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                    borderWidth: 0,
-                    borderColor: '#AAA',
-                    format: '{y}户',
-
+                    color:  'black',
+                    format: '{y} 户',
                 }
             }
         },

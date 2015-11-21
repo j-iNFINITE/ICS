@@ -11,40 +11,25 @@ from django.contrib.auth.decorators import login_required
 from survey.models import autum
 import re
 context={}
-branchinfo = {
-    '0071':'pdjs',
-    '0169':'pdyyl',
-    '0332':'pdcy',
-    '0333':'pdyyzx',
-    '0335':'pddd',
-}
-js=autum.objects.filter(branch='0071')
-yyl=autum.objects.filter(branch='0169')
-cy=autum.objects.filter(branch='0332')
-yyzx=autum.objects.filter(branch='0333')
-dd=autum.objects.filter(branch='0335')
-hj=len(js)+len(yyl)+len(cy)+len(yyzx)+len(dd)
-context={
-    'js': len(js),
-    'yyl': len(yyl),
-    'cy': len(cy),
-    'yyzx':len(yyzx),
-    'dd': len(dd),
-    'sum': hj
-}
-for branch in branchinfo.keys():
-    hly=skb=sxt=kkt=tlkh=0
-    for temp in autum.objects.filter(branch=branch).values():
-        if temp['hly']==True:
-            hly+=1
-        if temp['skb']==True:
-            skb+=1
-        if temp['sxt']==True:
-            sxt+=1
-        if temp['kkt']==True:
-            kkt+=1
-        if temp['tlkh']==True:
-            tlkh+=1
-    context['%s'%branchinfo[branch]]=[hly,skb,sxt,kkt,tlkh]
+ls_all=[]
 
-print(context)
+records=autum.objects.filter(branch='0071').values()
+for record in records:
+    ls=[]
+    for vb in record.keys():
+        if record[vb]==False:
+            record[vb]='否'
+        if record[vb]==True:
+            record[vb]='是'
+    ls.append(record['name'])
+    ls.append(record['market'])
+    ls.append(record['hly'])
+    ls.append(record['skb'])
+    ls.append(record['sxt'])
+    ls.append(record['kkt'])
+    ls.append(record['tlkh'])
+    ls.append(record['worker'])
+    ls.append(record['note'])
+    ls_all.append(ls)
+
+print(ls_all)

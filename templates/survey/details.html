@@ -51,6 +51,35 @@
     });
 
 });</script>
+<div class="bs-example" data-example-id="simple-table">
+    <table class="table table-bordered table-condensed">
+      <caption>登记明细</caption>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>客户姓名</th>
+          <th>所属市场</th>
+          <th>活利盈</th>
+          <th>收款宝</th>
+          <th>随薪通准贷记卡</th>
+          <th>卡卡通</th>
+          <th>通联资金归集</th>
+          <th>登记人员</th>
+          <th>备注</th>
+        </tr>
+      </thead>
+      <tbody >
+      {% for ls in ls_all %}
+          <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          {% for a in ls %}
+              <td>{{ a }}</td>
+          {% endfor %}
+          </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
 <a href="./" class="btn btn-primary   btn-block" role="button">返回首页</a>
 </div>
 {% endblock %}
