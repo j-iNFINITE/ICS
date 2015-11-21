@@ -109,6 +109,7 @@
         <a href="login?branch=德胜东路支行&worker=沈珠慧" class="btn btn-default  active btn-block" role="button">沈珠慧</a>
       </div>
       <div class="tab-pane" id="chart2">
+        <div id="myChart1" ></div>
         <div id="myChart2" ></div>
           <br />
           <a href="details?branch=0071" class="btn btn-primary   btn-block" role="button">九沙支行明细</a>
@@ -120,7 +121,7 @@
 
 	<script>
         $(function () {
-    $('#myChart2').highcharts({
+    $('#myChart1').highcharts({
         chart: {
             type: 'column',
 
@@ -178,8 +179,83 @@
         }]
 
     });
+    $('#myChart2').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: '受理产品统计图'
+        },
+        xAxis: {
+            categories: ['活利盈', '收款宝', '随薪通准贷记卡', '卡卡通', '通联资金归集']
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: '单位（户）'
+            },
+            stackLabels: {
+                enabled: true,
+                style: {
+                    fontWeight: 'bold',
+                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                },
+            }
+        },
+        legend: {
+            align: 'right',
+            x: -70,
+            verticalAlign: 'top',
+            y: 20,
+            floating: true,
+            backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColorSolid) || 'white',
+            borderColor: '#CCC',
+            borderWidth: 1,
+            shadow: false
+        },
+        tooltip: {
+            formatter: function() {
+                return '<b>'+ this.x +'</b><br/>'+
+                    this.series.name +': '+ this.y +'<br/>'+
+                    '总计: '+ this.point.stackTotal;
+            }
+        },
+        plotOptions: {
+            column: {
+                stacking: 'normal',
+                threshold:4,
+                dataLabels: {
+                    enabled: true,
+                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'black',
+                    borderRadius: 5,
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                    borderWidth: 0,
+                    borderColor: '#AAA',
+                    format: '{y}户',
+
+                }
+            }
+        },
+        series: [{
+            name: '九沙支行',
+            data: [{{ pdjs }}]
+        }, {
+            name: '月雅路支行',
+            data: [{{ pdyyl }}]
+        }, {
+            name: '朝阳支行',
+            data: [{{ pdcy }}]
+        }, {
+            name: '营业中心',
+            data: [{{ pdyyzx }}]
+        }, {
+            name: '德胜东路支行',
+            data: [{{ pddd }}]
+        }]
+    });
     $('#tab2').on('shown.bs.tab', function (e) {
         $('#myChart2').highcharts().reflow()
+        $('#myChart1').highcharts().reflow()
 
                 });
 });

@@ -9,6 +9,13 @@ import re
 # Create your views here.
 def index(request):
     context={}
+    branchinfo = {
+        '0071':'pdjs',
+        '0169':'pdyyl',
+        '0332':'pdcy',
+        '0333':'pdyyzx',
+        '0335':'pddd',
+    }
     js=autum.objects.filter(branch='0071')
     yyl=autum.objects.filter(branch='0169')
     cy=autum.objects.filter(branch='0332')
@@ -23,6 +30,21 @@ def index(request):
         'dd': len(dd),
         'sum': hj
     }
+    for branch in branchinfo.keys():
+        hly=skb=sxt=kkt=tlkh=0
+        for temp in autum.objects.filter(branch=branch).values():
+            if temp['hly']==True:
+                hly+=1
+            if temp['skb']==True:
+                skb+=1
+            if temp['sxt']==True:
+                sxt+=1
+            if temp['kkt']==True:
+                kkt+=1
+            if temp['tlkh']==True:
+                tlkh+=1
+        context['%s'%branchinfo[branch]]='%s,%s,%s,%s,%s' %(hly,skb,sxt,kkt,tlkh)
+
     return render(request,'survey/index.html',context)
 def test(request):
     context={}
