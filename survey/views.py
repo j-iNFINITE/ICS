@@ -118,24 +118,27 @@ def done(request):
 
     except autum.DoesNotExist:
         record = autum(name=context['name'])
-        record.ID_card=request.GET['ID']
-        if 'hly' in request.GET.keys():
-            record.hly=request.GET['hly']
-        if 'skb' in request.GET.keys():
-            record.skb=request.GET['skb']
-        if 'kkt' in request.GET.keys():
-            record.kkt=request.GET['kkt']
-        if 'sxt' in request.GET.keys():
-            record.sxt=request.GET['sxt']
-        if 'tlkh' in request.GET.keys():
-            record.tlkh=request.GET['tlkh']
-        if 'note' in request.GET.keys():
-            record.note=request.GET['note']
-        record.worker=context['worker']
-        record.market=context['market']
-        record.branch=branchinfo[context['branch']]
-        record.save()
-        context['result']='登记完成'
+        if len(request.GET['ID'])==15 or len(request.GET['ID'])==18:
+            record.ID_card=request.GET['ID']
+            if 'hly' in request.GET.keys():
+                record.hly=request.GET['hly']
+            if 'skb' in request.GET.keys():
+                record.skb=request.GET['skb']
+            if 'kkt' in request.GET.keys():
+                record.kkt=request.GET['kkt']
+            if 'sxt' in request.GET.keys():
+                record.sxt=request.GET['sxt']
+            if 'tlkh' in request.GET.keys():
+                record.tlkh=request.GET['tlkh']
+            if 'note' in request.GET.keys():
+                record.note=request.GET['note']
+            record.worker=context['worker']
+            record.market=context['market']
+            record.branch=branchinfo[context['branch']]
+            record.save()
+            context['result']='登记完成'
+        else:
+            context['result']='身份证号输入有误'
 
     return render(request,'survey/done.html',context)
 def error(request):
