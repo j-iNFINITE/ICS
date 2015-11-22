@@ -118,6 +118,7 @@ def done(request):
 
     except autum.DoesNotExist:
         record = autum(name=context['name'])
+        record.ID_card=request.GET['ID']
         if 'hly' in request.GET.keys():
             record.hly=request.GET['hly']
         if 'skb' in request.GET.keys():

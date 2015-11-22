@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 class autum(models.Model):
     name=models.CharField('客户姓名',max_length=12,primary_key=True)
+    ID_card=models.IntegerField('身份证号',)
     hly = models.BooleanField('活利盈',default=False)
     skb = models.BooleanField('收款宝',default=False)
     sxt = models.BooleanField('随薪通准贷记卡',default=False)
