@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 # Create your models here.
 class autum(models.Model):
@@ -20,6 +21,6 @@ class autum(models.Model):
     worker = models.CharField('受理员工',max_length=10)
     market = models.CharField('所属市场',max_length=30)
     note = models.TextField('备注')
-    time=models.DateTimeField(auto_now_add=True)
+    time=models.DateTimeField(default=datetime.datetime.now() )
     def __str__(self):
         return self.name
