@@ -16,18 +16,18 @@ def index(request):
         '0333':'pdyyzx',
         '0335':'pddd',
     }
-    js=autum.objects.filter(branch='0071')
-    yyl=autum.objects.filter(branch='0169')
-    cy=autum.objects.filter(branch='0332')
-    yyzx=autum.objects.filter(branch='0333')
-    dd=autum.objects.filter(branch='0335')
-    hj=len(js)+len(yyl)+len(cy)+len(yyzx)+len(dd)
+    js=len(autum.objects.filter(branch='0071',hly=True))+len(autum.objects.filter(branch='0071',skb=True))+len(autum.objects.filter(branch='0071',sxt=True))+len(autum.objects.filter(branch='0071',kkt=True))+len(autum.objects.filter(branch='0071',tlkh=True))
+    yyl=len(autum.objects.filter(branch='0169',hly=True))+len(autum.objects.filter(branch='0169',skb=True))+len(autum.objects.filter(branch='0169',sxt=True))+len(autum.objects.filter(branch='0169',kkt=True))+len(autum.objects.filter(branch='0169',tlkh=True))
+    cy=len(autum.objects.filter(branch='0332',hly=True))+len(autum.objects.filter(branch='0332',skb=True))+len(autum.objects.filter(branch='0332',sxt=True))+len(autum.objects.filter(branch='0332',kkt=True))+len(autum.objects.filter(branch='0332',tlkh=True))
+    yyzx=len(autum.objects.filter(branch='0333',hly=True))+len(autum.objects.filter(branch='0333',skb=True))+len(autum.objects.filter(branch='0333',sxt=True))+len(autum.objects.filter(branch='0333',kkt=True))+len(autum.objects.filter(branch='0333',tlkh=True))
+    dd=len(autum.objects.filter(branch='0335',hly=True))+len(autum.objects.filter(branch='0335',skb=True))+len(autum.objects.filter(branch='0335',sxt=True))+len(autum.objects.filter(branch='0335',kkt=True))+len(autum.objects.filter(branch='0335',tlkh=True))
+    hj=js+yyl+cy+yyzx+dd
     context={
-        'js': len(js),
-        'yyl': len(yyl),
-        'cy': len(cy),
-        'yyzx':len(yyzx),
-        'dd': len(dd),
+        'js': js,
+        'yyl': yyl,
+        'cy': cy,
+        'yyzx':yyzx,
+        'dd': dd,
         'sum': hj
     }
     for branch in branchinfo.keys():
